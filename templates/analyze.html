@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analyze Media</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    {% extends 'layout.html' %}
+
+    {% block content %}
+    <div class="container">
+      <h1 id="analyze">Analyze an Image or Video</h1>
+
+      <div class="split">
+        <div class="card">
+          <h2>Image</h2>
+          <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="mode" value="image">
+            <label class="file-label">Choose an image</label>
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Analyze Image</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Video</h2>
+          <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="mode" value="video">
+            <label class="file-label">Choose a short video</label>
+            <input type="file" name="file" accept="video/*" required>
+            <button type="submit">Analyze Video</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="note">Upload an image or a short video; a saliency heatmap will be shown over the most indicative frame.</p>
+    </div>
+    {% endblock %}
+  </body>
+</html>

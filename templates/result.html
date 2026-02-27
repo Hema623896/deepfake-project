@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    {% extends 'layout.html' %}
+
+    {% block content %}
+    <div class="container">
+      <h1>Analysis Result</h1>
+      <div class="meta dark">
+        <div><span class="meta-key">Prediction:</span> <span class="meta-val">{{ label }}</span></div>
+        <div><span class="meta-key">Confidence:</span> <span class="meta-val">{{ score }}</span></div>
+        {% if frame_index is defined %}
+        <div><span class="meta-key">Frame:</span> <span class="meta-val">{{ frame_index }}</span></div>
+        {% endif %}
+      </div>
+      {% if explanation is defined %}
+      <div class="explanation">
+        <strong>Explanation:</strong> {{ explanation }}
+      </div>
+      {% endif %}
+      <p class="disclaimer">Predictions are provided by an AI model and may be incorrect; use them for guidance only.</p>
+      <div class="result-img">
+        <img src="{{ image_url }}" alt="result" />
+      </div>
+      <p class="actions"><a class="btn-link" href="/analyze">Analyze another</a></p>
+    </div>
+    {% endblock %}
+  </body>
+</html>

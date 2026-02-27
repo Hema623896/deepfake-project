@@ -1,0 +1,11 @@
+flask
+timm
+opencv-python
+Pillow
+numpy
+grad-cam
+werkzeug
+
+# Note: Install PyTorch separately using the official instructions for your Python
+# and CUDA versions. Example (CPU-only):
+# pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision

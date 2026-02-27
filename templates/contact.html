@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Contact Us</h1>
+  <div class="card" style="max-width:640px; margin:0 auto;">
+    <form action="/contact" method="post">
+      <label class="file-label">Name</label>
+      <input type="text" name="name" required>
+      
+      <label class="file-label">Email</label>
+      <input type="email" name="email" required>
+      
+      <label class="file-label">Message</label>
+      <textarea name="message" rows="8" required></textarea>
+      
+      <button type="submit" style="margin-top:12px;">Send Message</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

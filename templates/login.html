@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Login</h1>
+  <div class="card" style="max-width:420px;">
+    <form action="/login" method="post">
+      <label class="file-label">Username</label>
+      <input type="text" name="username" placeholder="Your name" required>
+      <label class="file-label">(Demo only) No password required</label>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About DeepfakeDetect</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    {% extends 'layout.html' %}
+
+    {% block content %}
+    <div class="container">
+      <h1>About This Website</h1>
+      <p>DeepfakeDetect uses a Vision Transformer (ViT) model to analyze images and videos for signs of manipulation. The system stores each analysis in a local database so we can review past predictions and provide a simple explanation for the result.</p>
+      <p>The explanations are generated automatically based on the model's output: fake predictions mention artifacts commonly found in deepfakes, and real predictions note features consistent with authentic media.</p>
+
+      {% if predictions %}
+        <h2>Recent Analyses</h2>
+        <table class="results-table">
+          <tr>
+            <th>Time</th><th>File</th><th>Label</th><th>Score</th><th>Explanation</th>
+          </tr>
+          {% for fname, label, score, explanation, ts in predictions %}
+          <tr>
+            <td>{{ ts }}</td>
+            <td>{{ fname }}</td>
+            <td>{{ label }}</td>
+            <td>{{ '%.4f'|format(score) }}</td>
+            <td>{{ explanation }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No analyses have been performed yet.</p>
+      {% endif %}
+    </div>
+    {% endblock %}
+  </body>
+</html>

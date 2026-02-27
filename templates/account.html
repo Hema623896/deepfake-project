@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Account</h1>
+  <div class="card" style="max-width:600px;">
+    <p>Signed in as <strong>{{ user }}</strong></p>
+    <p>Account features (demo):</p>
+    <ul>
+      <li>View previous analyses (not implemented)</li>
+      <li>Manage preferences (not implemented)</li>
+      <li>Contact support</li>
+    </ul>
+    <p><a href="/logout" class="btn-link">Sign out</a></p>
+  </div>
+</div>
+{% endblock %}
